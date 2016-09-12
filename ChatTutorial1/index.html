@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SignalR Simple Chat</title>
+    <style type="text/css">
+        body {
+            background-color: black;
+            color: white;
+            font-family: courier;
+            font-size: 10px;
+        }
+         .container {
+             background-color: black;
+             border: thick solid #808080;
+             padding: 20px;
+             margin: auto;
+             width: 650px;
+             height: 50vh;
+             /*overflow:auto;*/ /*Scroll bar*/
+             /*overflow:hidden;*/
+         }
+
+        .sendbutton {
+            color: #fff;
+            background-color: #6496c8;
+            text-shadow: -1px 1px #417cb8;
+            border: none;
+        }
+
+        .sendbutton:hover {
+            background-color: red;
+        }
+
+        .textInput {
+            width: 100%;
+        }
+
+        .typingIndicator {
+            visibility: hidden;
+        }
+
+        #userName {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="signalr/hubs"></script>
+    <script src="scripts/chat.js"></script>
+
+<div class="container" id="container">
+    <p id="userName"></p>
+    <ul id="discussion"></ul>
+    <ul id="typingIndicator"></ul>
+    <br/>
+    <input type="text" id="message" class="textInput"/>
+    <!--<input type="button" id="sendmessage" value="Send" class="sendbutton"/>-->
+    <input type="hidden" id="displayname"/>
+
+
+</div>
+</body>
+</html>
