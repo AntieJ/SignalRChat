@@ -11,13 +11,20 @@
         }
          .container {
              background-color: black;
+             padding: 20px;
+             margin: auto;
+             width: 90%;
+             height: 50vh;
+             /*overflow:auto;*/ /*Scroll bar*/
+             overflow:hidden;
+         }
+
+         .mainDiv {
+             background-color: black;
              border: thick solid #808080;
              padding: 20px;
              margin: auto;
              width: 650px;
-             height: 50vh;
-             /*overflow:auto;*/ /*Scroll bar*/
-             /*overflow:hidden;*/
          }
 
         .sendbutton {
@@ -49,17 +56,18 @@
     <script src="scripts/jquery.signalR-2.2.1.min.js"></script>
     <script src="signalr/hubs"></script>
     <script src="scripts/chat.js"></script>
+    <div class="mainDiv">
+        <p id="userName"></p>
+        <div class="container" id="container">
 
-<div class="container" id="container">
-    <p id="userName"></p>
-    <ul id="discussion"></ul>
-    <ul id="typingIndicator"></ul>
-    <br/>
-    <input type="text" id="message" class="textInput"/>
-    <!--<input type="button" id="sendmessage" value="Send" class="sendbutton"/>-->
-    <input type="hidden" id="displayname"/>
+            <ul id="discussion"></ul>
+            <ul id="typingIndicator"></ul>
+            <br />
+            <!--<input type="button" id="sendmessage" value="Send" class="sendbutton"/>-->
+            <input type="hidden" id="displayname" />
 
-
-</div>
+        </div>
+        <input type="text" id="message" class="textInput" />
+    </div>
 </body>
 </html>

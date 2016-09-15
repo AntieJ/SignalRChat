@@ -26,11 +26,14 @@ function checkTyping() {
     }
 }
 
-//function updateScroll() {
-//    setInterval(updateScroll, 100);
-//    var element = document.getElementById("container");
-//    element.scrollTop = element.scrollHeight;
-//}
+function updateScroll() {
+    setInterval(updateScroll, 1000);
+    var element = document.getElementById("container");
+    if (element != null && element.scrollHeight != null) {
+        var scrollHeight = element.scrollHeight;
+        element.scrollTop = scrollHeight;
+    }
+}
 
 // Start the connection.
 $.connection.hub.start()
@@ -45,10 +48,10 @@ $.connection.hub.start()
         //Get history
         getChatLogs(function () {
             sendMessage('', displayName + ' has entered the room');
+            updateScroll();
         });
         
         checkTyping();
-
         //register click event
         $('#sendmessage').click(function () {
             sendMessage($("#displayname").val(), $("#message").val());
@@ -93,6 +96,7 @@ chat.client.broadcastMessage = function (name, message) {
     }
 
     $('#discussion').append('<br/>');
+    updateScroll();
 
 };
 
@@ -102,5 +106,4 @@ chat.client.someoneIsTyping = function (name) {
     typingTimer = Date.now();
 }
 
-
-//todo: scrolling
+//todo: groups
